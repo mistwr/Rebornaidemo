@@ -3,18 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REBORN AI — 11+ Ferramentas de IA numa Plataforma</title>
-    <meta name="description" content="Chat inteligente, Modo Live, Imagens AI, WebCraft, Slides, Ebooks, Marketing automático. BASIC grátis ou PRO ilimitado.">
-    
-    <!-- STRIPE CHECKOUT LINKS -->
-    <!-- 
-    BASIC: https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00
-    PRO: https://buy.stripe.com/cNi4gz1J36rA264gEt5Rm06
-    Redirect após pagamento: https://rebornaaqi.vercel.app/
-    -->
-    
+    <title>Reborn AI — Plataforma Completa de Inteligência Artificial</title>
+    <meta name="description" content="11+ ferramentas de IA profissionais. Chat, Imagens, WebCraft, Slides, Ebooks e muito mais.">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
         * {
             margin: 0;
@@ -23,50 +15,22 @@
         }
         
         :root {
-            --electric: #00ffff;
-            --magenta: #ff00ff;
-            --lime: #ccff00;
-            --black: #000000;
-            --dark: #0a0a0a;
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --accent: #0ea5e9;
+            --success: #10b981;
+            --dark: #0f172a;
+            --gray-900: #111827;
+            --gray-700: #374151;
+            --white: #ffffff;
         }
         
         body {
-            font-family: 'JetBrains Mono', monospace;
-            background: var(--black);
-            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--white);
+            color: var(--dark);
+            line-height: 1.6;
             overflow-x: hidden;
-        }
-        
-        /* VIDEO BG */
-        .video-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-        }
-        
-        .video-bg video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.08;
-        }
-        
-        /* GRID */
-        .grid-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(var(--electric) 1px, transparent 1px),
-                linear-gradient(90deg, var(--electric) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.03;
-            z-index: -1;
         }
         
         /* NAV */
@@ -74,693 +38,674 @@
             position: fixed;
             top: 0;
             width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
             padding: 20px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0,0,0,0.95);
-            border-bottom: 3px solid var(--electric);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
         }
         
         .logo {
-            font-family: 'Syne', sans-serif;
-            font-size: 2em;
-            font-weight: 800;
-            color: var(--electric);
-            text-transform: uppercase;
-            letter-spacing: -2px;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary);
         }
         
         .nav-cta {
-            background: var(--lime);
-            color: var(--black);
-            padding: 12px 30px;
-            border: none;
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-            font-size: 1em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 4px 4px 0 var(--magenta);
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 8px;
             text-decoration: none;
-            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
         .nav-cta:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0 var(--magenta);
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
         
-        /* HERO */
+        /* HERO WITH ORB */
         .hero {
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            padding: 120px 40px 60px;
-        }
-        
-        h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: clamp(3em, 10vw, 9em);
-            font-weight: 800;
-            line-height: 0.9;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-        }
-        
-        h1 .line1 { color: var(--electric); }
-        h1 .line2 { color: var(--magenta); }
-        h1 .line3 { color: var(--lime); }
-        
-        .hero-subtitle {
-            font-size: 1.3em;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 40px;
-            max-width: 700px;
-        }
-        
-        .hero-stats {
-            display: flex;
-            gap: 60px;
-            margin: 50px 0;
-            flex-wrap: wrap;
-        }
-        
-        .stat {
-            border: 3px solid var(--electric);
-            padding: 30px;
-            background: var(--black);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             position: relative;
+            overflow: hidden;
+            padding: 120px 40px 80px;
         }
         
-        .stat::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            right: -3px;
-            width: 20px;
-            height: 20px;
-            background: var(--magenta);
+        .hero-content {
+            max-width: 1280px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
         }
         
-        .stat-number {
-            font-family: 'Syne', sans-serif;
-            font-size: 4em;
+        .hero-text {
+            color: white;
+        }
+        
+        .hero-text h1 {
+            font-size: clamp(3em, 5vw, 4.5em);
             font-weight: 800;
-            color: var(--lime);
-            line-height: 1;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -2px;
         }
         
-        .stat-label {
-            font-size: 0.9em;
-            color: rgba(255,255,255,0.7);
-            text-transform: uppercase;
-            margin-top: 10px;
+        .hero-text p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.6;
         }
         
-        .cta-group {
+        .hero-cta {
             display: flex;
-            gap: 20px;
-            margin-top: 50px;
+            gap: 16px;
             flex-wrap: wrap;
         }
         
-        .btn-primary,
-        .btn-secondary {
-            padding: 20px 50px;
-            border: 3px solid;
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-            font-size: 1.2em;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.2s;
+        .btn {
+            padding: 16px 32px;
+            border-radius: 10px;
             text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
             display: inline-block;
         }
         
         .btn-primary {
-            background: var(--magenta);
-            border-color: var(--magenta);
-            color: #fff;
+            background: white;
+            color: var(--primary);
         }
         
         .btn-primary:hover {
-            background: transparent;
-            color: var(--magenta);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
         }
         
         .btn-secondary {
-            background: transparent;
-            border-color: var(--electric);
-            color: var(--electric);
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
         }
         
         .btn-secondary:hover {
-            background: var(--electric);
-            color: var(--black);
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* ORB CONTAINER */
+        .orb-container {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* ANIMATED ORB */
+        .orb {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .orb-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.3) 0%,
+                rgba(255, 255, 255, 0.1) 100%);
+            box-shadow: 
+                0 0 60px rgba(255, 255, 255, 0.4),
+                inset 0 0 60px rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Rotating rings inside orb */
+        .orb-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .orb-ring:nth-child(1) {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            animation: rotate 10s linear infinite;
+        }
+        
+        .orb-ring:nth-child(2) {
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            animation: rotate 15s linear infinite reverse;
+        }
+        
+        .orb-ring:nth-child(3) {
+            width: 40%;
+            height: 40%;
+            top: 30%;
+            left: 30%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Floating particles */
+        .orb-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: particle-float 4s ease-in-out infinite;
+            opacity: 0.6;
+        }
+        
+        .orb-particle:nth-child(4) { top: 20%; left: 30%; animation-delay: 0s; }
+        .orb-particle:nth-child(5) { top: 60%; left: 70%; animation-delay: 1s; }
+        .orb-particle:nth-child(6) { top: 80%; left: 20%; animation-delay: 2s; }
+        .orb-particle:nth-child(7) { top: 40%; left: 80%; animation-delay: 3s; }
+        
+        @keyframes particle-float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-30px) scale(1.2); }
+        }
+        
+        /* Feature badges orbiting */
+        .feature-orbit {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85em;
+            color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            animation: orbit 20s linear infinite;
+        }
+        
+        .feature-orbit:nth-child(8) { animation-delay: 0s; }
+        .feature-orbit:nth-child(9) { animation-delay: -5s; }
+        .feature-orbit:nth-child(10) { animation-delay: -10s; }
+        .feature-orbit:nth-child(11) { animation-delay: -15s; }
+        
+        @keyframes orbit {
+            0% {
+                transform: rotate(0deg) translateX(250px) rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg) translateX(250px) rotate(-360deg);
+            }
+        }
+        
+        /* Glow effect */
+        .orb-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, 
+                rgba(255, 255, 255, 0.3) 0%,
+                transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
         }
         
         /* SECTIONS */
         section {
-            padding: 100px 40px;
+            padding: 120px 40px;
         }
         
-        .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 4em;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 60px;
-            color: var(--electric);
-            border-bottom: 5px solid var(--magenta);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        /* FEATURES */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1400px;
+        .container {
+            max-width: 1280px;
             margin: 0 auto;
         }
         
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-label {
+            font-size: 0.9em;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+        }
+        
+        .section-title {
+            font-size: clamp(2.5em, 4vw, 3.5em);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.25em;
+            color: var(--gray-700);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* FEATURES GRID */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        
         .feature-card {
-            background: var(--dark);
-            border: 3px solid var(--electric);
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
             padding: 40px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
         
         .feature-card:hover {
-            transform: translate(-5px, -5px);
-            box-shadow: 5px 5px 0 var(--magenta);
+            border-color: var(--primary);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
+            transform: translateY(-4px);
         }
         
         .feature-icon {
-            font-size: 3em;
-            margin-bottom: 20px;
-            display: block;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            margin-bottom: 24px;
         }
         
         .feature-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--lime);
-            margin-bottom: 15px;
-            text-transform: uppercase;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 12px;
         }
         
         .feature-desc {
-            font-size: 1em;
-            line-height: 1.6;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 20px;
-        }
-        
-        .feature-list {
-            list-style: none;
-        }
-        
-        .feature-list li {
-            padding: 8px 0 8px 25px;
-            position: relative;
-            font-size: 0.95em;
-        }
-        
-        .feature-list li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--electric);
-            font-weight: 700;
+            color: var(--gray-700);
+            line-height: 1.7;
         }
         
         /* PRICING */
         .pricing-section {
-            background: var(--dark);
-            border-top: 5px solid var(--electric);
-            border-bottom: 5px solid var(--magenta);
+            background: linear-gradient(to bottom, #f9fafb 0%, white 100%);
         }
         
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 50px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            max-width: 1100px;
             margin: 0 auto;
         }
         
         .pricing-card {
-            background: var(--black);
-            border: 5px solid var(--electric);
-            padding: 50px;
+            background: white;
+            border: 2px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 48px;
+            transition: all 0.3s ease;
             position: relative;
         }
         
-        .pricing-card.pro {
-            border-color: var(--magenta);
+        .pricing-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+            transform: translateY(-8px);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary);
+            border-width: 3px;
             transform: scale(1.05);
         }
         
         .pricing-badge {
             position: absolute;
-            top: -20px;
-            right: 30px;
-            background: var(--lime);
-            color: var(--black);
-            padding: 10px 25px;
-            font-weight: 700;
-            font-size: 0.9em;
-            text-transform: uppercase;
-        }
-        
-        .pricing-badge.pro-badge {
-            background: var(--magenta);
-            color: #fff;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
         }
         
         .plan-name {
-            font-family: 'Syne', sans-serif;
-            font-size: 3em;
-            font-weight: 800;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-        
-        .plan-name.basic-name {
-            color: var(--electric);
-        }
-        
-        .plan-name.pro-name {
-            color: var(--magenta);
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 16px;
         }
         
         .plan-price {
-            font-family: 'Syne', sans-serif;
-            font-size: 5em;
+            font-size: 3.5em;
             font-weight: 800;
-            color: var(--lime);
-            line-height: 1;
-            margin: 30px 0;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        
+        .plan-price small {
+            font-size: 0.4em;
+            font-weight: 500;
+            color: var(--gray-700);
         }
         
         .plan-features {
             list-style: none;
-            margin: 40px 0;
+            margin: 32px 0;
         }
         
         .plan-features li {
-            padding: 15px 0;
-            border-bottom: 2px solid rgba(0,255,255,0.2);
+            padding: 12px 0;
             display: flex;
-            align-items: flex-start;
-            gap: 15px;
+            align-items: center;
+            gap: 12px;
         }
         
         .plan-features li::before {
             content: '✓';
-            color: var(--lime);
+            color: var(--success);
             font-weight: 700;
-            font-size: 1.5em;
-            flex-shrink: 0;
+            font-size: 1.2em;
         }
         
         .plan-cta {
             width: 100%;
-            padding: 25px;
+            padding: 16px;
+            background: var(--primary);
+            color: white;
             border: none;
-            font-family: 'Syne', sans-serif;
-            font-weight: 700;
-            font-size: 1.3em;
-            text-transform: uppercase;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.05em;
             cursor: pointer;
-            margin-top: 30px;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: block;
             text-align: center;
         }
         
-        .plan-cta.basic-cta {
-            background: var(--electric);
-            color: var(--black);
+        .plan-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
         
-        .plan-cta.basic-cta:hover {
-            background: var(--lime);
+        .plan-cta.secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
         
-        .plan-cta.pro-cta {
-            background: var(--magenta);
-            color: #fff;
-        }
-        
-        .plan-cta.pro-cta:hover {
-            background: var(--lime);
-            color: var(--black);
+        .plan-cta.secondary:hover {
+            background: var(--primary);
+            color: white;
         }
         
         /* MOBILE */
-        @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-            
-            .logo {
-                font-size: 1.5em;
-            }
-            
-            .nav-cta {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
-            
-            h1 {
-                font-size: 3em;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .features-grid,
-            .pricing-grid {
+        @media (max-width: 968px) {
+            .hero-content {
                 grid-template-columns: 1fr;
+                gap: 60px;
             }
             
-            .pricing-card.pro {
+            .orb-container {
+                height: 400px;
+            }
+            
+            .orb {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .feature-orbit {
+                display: none;
+            }
+            
+            .pricing-card.featured {
                 transform: scale(1);
-            }
-            
-            .section-title {
-                font-size: 2.5em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="video-bg">
-        <video autoplay muted loop playsinline>
-            <source src="https://cdn.pixabay.com/video/2024/01/05/196088-903020513_large.mp4" type="video/mp4">
-        </video>
-    </div>
-    <div class="grid-overlay"></div>
-
     <nav>
-        <div class="logo">REBORN AI</div>
-        <a href="#pricing" class="nav-cta">COMEÇAR</a>
+        <div class="nav-container">
+            <div class="logo">Reborn AI</div>
+            <a href="#pricing" class="nav-cta">Começar Agora</a>
+        </div>
     </nav>
 
+    <!-- HERO WITH ORB -->
     <section class="hero">
-        <h1>
-            <div class="line1">REBORN</div>
-            <div class="line2">INTELIGÊNCIA</div>
-            <div class="line3">ARTIFICIAL</div>
-        </h1>
-        
-        <p class="hero-subtitle">
-            11+ ferramentas de IA numa única plataforma. Chat, imagens, websites, apresentações, 
-            ebooks, marketing e muito mais — tudo num só lugar.
-        </p>
-        
-        <div class="hero-stats">
-            <div class="stat">
-                <div class="stat-number">11+</div>
-                <div class="stat-label">Ferramentas AI</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">10×</div>
-                <div class="stat-label">Mais Rápido</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number">∞</div>
-                <div class="stat-label">Possibilidades</div>
-            </div>
-        </div>
-        
-        <div class="cta-group">
-            <a href="https://buy.stripe.com/cNi4gz1J36rA264gEt5Rm06" class="btn-primary">UPGRADE PRO</a>
-            <a href="https://rebornaaqi.vercel.app/" class="btn-secondary">DEMO AO VIVO</a>
-        </div>
-    </section>
-
-    <section id="features">
-        <h2 class="section-title">Chat & Conversação</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">💬</span>
-                <h3 class="feature-title">Chat Inteligente</h3>
-                <p class="feature-desc">Conversa natural com IA avançada em tempo real</p>
-                <ul class="feature-list">
-                    <li>Conversa fluida em qualquer idioma</li>
-                    <li>Análise de imagens detalhada</li>
-                    <li>Pesquisa web em tempo real</li>
-                    <li>Reconhecimento de voz + TTS</li>
-                    <li>Histórico completo</li>
-                </ul>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>A Inteligência Artificial que Transforma</h1>
+                <p>11+ ferramentas profissionais de IA numa única plataforma. Chat inteligente, criação de conteúdo, marketing automático e muito mais.</p>
+                <div class="hero-cta">
+                    <a href="https://buy.stripe.com/cNi4gz1J36rA264gEt5Rm06" class="btn btn-primary">Começar com PRO</a>
+                    <a href="https://rebornaaqi.vercel.app/" class="btn btn-secondary">Experimentar Grátis</a>
+                </div>
             </div>
             
-            <div class="feature-card">
-                <span class="feature-icon">🎙️</span>
-                <h3 class="feature-title">Modo Live</h3>
-                <p class="feature-desc">Interação ao vivo com câmara e microfone</p>
-                <ul class="feature-list">
-                    <li>Visão AI em tempo real</li>
-                    <li>Reconhecimento de voz contínuo</li>
-                    <li>Respostas faladas automáticas</li>
-                    <li>Análise contextual ao vivo</li>
-                </ul>
+            <div class="orb-container">
+                <div class="orb-glow"></div>
+                <div class="orb">
+                    <div class="orb-inner">
+                        <div class="orb-ring"></div>
+                        <div class="orb-ring"></div>
+                        <div class="orb-ring"></div>
+                        <div class="orb-particle"></div>
+                        <div class="orb-particle"></div>
+                        <div class="orb-particle"></div>
+                        <div class="orb-particle"></div>
+                        <div class="feature-orbit">💬 Chat AI</div>
+                        <div class="feature-orbit">🎨 Imagens</div>
+                        <div class="feature-orbit">🌐 WebCraft</div>
+                        <div class="feature-orbit">📊 Slides</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- FEATURES -->
     <section>
-        <h2 class="section-title">Criação de Conteúdo</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">🎨</span>
-                <h3 class="feature-title">Imagens AI</h3>
-                <p class="feature-desc">Gera imagens realistas com inteligência artificial</p>
-                <ul class="feature-list">
-                    <li>Criação a partir de prompts</li>
-                    <li>Múltiplos estilos (foto, ilustração, arte)</li>
-                    <li>Alta resolução</li>
-                </ul>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Ferramentas Profissionais</div>
+                <h2 class="section-title">Tudo o Que Precisas Numa Plataforma</h2>
+                <p class="section-subtitle">11+ ferramentas poderosas de IA para transformar o teu negócio</p>
             </div>
             
-            <div class="feature-card">
-                <span class="feature-icon">🌐</span>
-                <h3 class="feature-title">WebCraft</h3>
-                <p class="feature-desc">Cria websites e landing pages automaticamente</p>
-                <ul class="feature-list">
-                    <li>10 categorias × 4 templates = 40 opções</li>
-                    <li>Personalização total</li>
-                    <li>Download ou deploy Vercel direto</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">📊</span>
-                <h3 class="feature-title">Apresentações</h3>
-                <p class="feature-desc">Slides profissionais gerados em segundos</p>
-                <ul class="feature-list">
-                    <li>12 estilos visuais</li>
-                    <li>3-15 slides</li>
-                    <li>Imagens automáticas</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">📚</span>
-                <h3 class="feature-title">Ebooks</h3>
-                <p class="feature-desc">Escreve e formata ebooks completos com IA</p>
-                <ul class="feature-list">
-                    <li>12 estilos de design</li>
-                    <li>3-15 capítulos</li>
-                    <li>Capa gerada automaticamente</li>
-                </ul>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3 class="feature-title">Chat Inteligente</h3>
+                    <p class="feature-desc">Conversa natural com IA avançada, análise de imagens, pesquisa web em tempo real e histórico completo.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎙️</div>
+                    <h3 class="feature-title">Modo Live</h3>
+                    <p class="feature-desc">Interação em tempo real com voz e vídeo. Visão AI ao vivo com respostas instant
+
+âneas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Imagens AI</h3>
+                    <p class="feature-desc">Geração de imagens profissionais com múltiplos estilos e alta resolução.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3 class="feature-title">WebCraft</h3>
+                    <p class="feature-desc">Cria websites completos com 10 categorias, 40 templates e deploy automático.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Apresentações</h3>
+                    <p class="feature-desc">Slides profissionais com 12 estilos visuais e imagens geradas automaticamente.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Ebooks</h3>
+                    <p class="feature-desc">Livros digitais completos com capa profissional e design personalizado.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📧</div>
+                    <h3 class="feature-title">Email Marketing</h3>
+                    <p class="feature-desc">Campanhas de email em massa com validação automática e personalização.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💚</div>
+                    <h3 class="feature-title">WhatsApp & SMS</h3>
+                    <p class="feature-desc">Mensagens em massa para WhatsApp e SMS com QR codes e validação.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3 class="feature-title">Visão AI</h3>
+                    <p class="feature-desc">OCR e análise de imagens, PDFs e documentos com extração inteligente.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">✂️</div>
+                    <h3 class="feature-title">Clipper</h3>
+                    <p class="feature-desc">Edição de vídeos para TikTok/Reels com transcrição e legendas automáticas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">Marketing</h3>
+                    <p class="feature-desc">Posts para redes sociais com legendas, hashtags e cores da marca.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2 class="section-title">Marketing & Comunicação</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">📧</span>
-                <h3 class="feature-title">Email Marketing</h3>
-                <p class="feature-desc">Campanhas de email que convertem mais</p>
-                <ul class="feature-list">
-                    <li>Envio em massa via mailto</li>
-                    <li>Importação CSV/Excel</li>
-                    <li>Validação automática</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">💚</span>
-                <h3 class="feature-title">WhatsApp</h3>
-                <p class="feature-desc">Mensagens e campanhas para WhatsApp</p>
-                <ul class="feature-list">
-                    <li>Links wa.me automáticos</li>
-                    <li>Mensagens pré-preenchidas</li>
-                    <li>QR Codes gerados</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">📱</span>
-                <h3 class="feature-title">SMS</h3>
-                <p class="feature-desc">Envio de SMS sem APIs</p>
-                <ul class="feature-list">
-                    <li>Via telemóvel</li>
-                    <li>14 países suportados</li>
-                    <li>Validação automática</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">📈</span>
-                <h3 class="feature-title">Marketing</h3>
-                <p class="feature-desc">Estratégias e copys de marketing com IA</p>
-                <ul class="feature-list">
-                    <li>Posts todas redes sociais</li>
-                    <li>6 estilos visuais</li>
-                    <li>Legendas + Hashtags automáticas</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2 class="section-title">Análise & Processamento</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <span class="feature-icon">👁️</span>
-                <h3 class="feature-title">Visão AI</h3>
-                <p class="feature-desc">OCR e análise de imagens, PDFs e documentos</p>
-                <ul class="feature-list">
-                    <li>OCR em imagens</li>
-                    <li>Análise de PDFs</li>
-                    <li>Extração de informações</li>
-                </ul>
-            </div>
-            
-            <div class="feature-card">
-                <span class="feature-icon">✂️</span>
-                <h3 class="feature-title">Clipper</h3>
-                <p class="feature-desc">Extrai e resume conteúdo de vídeos e áudios</p>
-                <ul class="feature-list">
-                    <li>Corte para TikTok/Reels/Shorts</li>
-                    <li>Transcrição automática (AssemblyAI)</li>
-                    <li>Momentos virais identificados</li>
-                    <li>Formato 9:16 + Legendas</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
+    <!-- PRICING -->
     <section id="pricing" class="pricing-section">
-        <h2 class="section-title">Planos e Preços</h2>
-        
-        <div class="pricing-grid" style="grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));">
-            <!-- GRÁTIS TRIAL -->
-            <div class="pricing-card">
-                <div class="pricing-badge">Experimentar</div>
-                <h3 class="plan-name basic-name">GRÁTIS</h3>
-                <div class="plan-price">€0</div>
-                <ul class="plan-features">
-                    <li>Testar todas funcionalidades</li>
-                    <li>Chat básico limitado</li>
-                    <li>Imagens AI (demo)</li>
-                    <li>WebCraft (visualizar)</li>
-                    <li>Sem cartão crédito</li>
-                    <li>Perfeito para conhecer</li>
-                </ul>
-                <a href="https://rebornaaqi.vercel.app/" class="plan-cta basic-cta">
-                    EXPERIMENTAR GRÁTIS
-                </a>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Planos e Preços</div>
+                <h2 class="section-title">Escolhe o Teu Plano</h2>
+                <p class="section-subtitle">Começa grátis ou desbloqueia todo o potencial com PRO</p>
             </div>
             
-            <!-- BASIC €9.99 -->
-            <div class="pricing-card">
-                <div class="pricing-badge">Começar</div>
-                <h3 class="plan-name basic-name">BASIC</h3>
-                <div class="plan-price">€9.99/mês</div>
-                <ul class="plan-features">
-                    <li>Tokens diários generosos</li>
-                    <li>Todas 11+ ferramentas</li>
-                    <li>Chat inteligente</li>
-                    <li>Imagens AI</li>
-                    <li>WebCraft completo</li>
-                    <li>Slides e Ebooks</li>
-                    <li>Email, SMS, WhatsApp</li>
-                    <li>Visão AI e Clipper</li>
-                    <li>Marketing</li>
-                </ul>
-                <a href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" class="plan-cta basic-cta">
-                    ASSINAR BASIC
-                </a>
-            </div>
-            
-            <!-- PRO €69.99 -->
-            <div class="pricing-card pro">
-                <div class="pricing-badge pro-badge">🔥 RECOMENDADO</div>
-                <h3 class="plan-name pro-name">PRO</h3>
-                <div class="plan-price">€69.99/mês</div>
-                <ul class="plan-features">
-                    <li>🔥 Tokens ILIMITADOS</li>
-                    <li>ZERO limites, ZERO esperas</li>
-                    <li>Chat sem restrições</li>
-                    <li>Imagens AI ilimitadas</li>
-                    <li>WebCraft PRO + deploy Vercel</li>
-                    <li>Slides e Ebooks PRO</li>
-                    <li>Email, SMS, WhatsApp ilimitado</li>
-                    <li>Visão AI e Clipper avançado</li>
-                    <li>Marketing PRO</li>
-                    <li>Modo Live sem limites</li>
-                    <li>⚡ Suporte prioritário</li>
-                    <li>🚀 Novas features primeiro</li>
-                </ul>
-                <a href="https://buy.stripe.com/cNi4gz1J36rA264gEt5Rm06" class="plan-cta pro-cta">
-                    UPGRADE PARA PRO
-                </a>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">Grátis</div>
+                    <div class="plan-price">€0</div>
+                    <ul class="plan-features">
+                        <li>Testar todas funcionalidades</li>
+                        <li>Chat básico limitado</li>
+                        <li>Imagens AI (demo)</li>
+                        <li>WebCraft (visualizar)</li>
+                        <li>Sem cartão crédito</li>
+                    </ul>
+                    <a href="https://rebornaaqi.vercel.app/" class="plan-cta secondary">Experimentar Grátis</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="plan-name">Basic</div>
+                    <div class="plan-price">€9.99<small>/mês</small></div>
+                    <ul class="plan-features">
+                        <li>Tokens diários generosos</li>
+                        <li>Todas 11+ ferramentas</li>
+                        <li>Chat inteligente</li>
+                        <li>Imagens AI</li>
+                        <li>WebCraft completo</li>
+                        <li>Email, SMS, WhatsApp</li>
+                        <li>Suporte standard</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" class="plan-cta">Assinar Basic</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">🔥 Recomendado</div>
+                    <div class="plan-name">PRO</div>
+                    <div class="plan-price">€69.99<small>/mês</small></div>
+                    <ul class="plan-features">
+                        <li>🔥 Tokens ILIMITADOS</li>
+                        <li>ZERO limites, ZERO esperas</li>
+                        <li>Chat sem restrições</li>
+                        <li>Imagens AI ilimitadas</li>
+                        <li>WebCraft PRO + deploy Vercel</li>
+                        <li>Modo Live sem limites</li>
+                        <li>⚡ Suporte prioritário</li>
+                        <li>🚀 Novas features primeiro</li>
+                    </ul>
+                    <a href="https://buy.stripe.com/cNi4gz1J36rA264gEt5Rm06" class="plan-cta">Upgrade para PRO</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section style="text-align: center; padding: 150px 40px;">
-        <h2 class="section-title" style="font-size: 5em; border: none; display: block; margin-bottom: 40px;">
-            PRONTO PARA<br>TRANSFORMAR?
-        </h2>
-        <div class="cta-group" style="justify-content: center;">
-            <a href="https://buy.stripe.com/cNi4gz1J36rA264gEt5Rm06" class="btn-primary">PRO €69.99/mês</a>
-            <a href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" class="btn-secondary">BASIC €9.99/mês</a>
-        </div>
-        <div style="margin-top: 30px;">
-            <a href="https://rebornaaqi.vercel.app/" style="color: var(--lime); text-decoration: underline; font-size: 1.1em;">
-                Ou experimentar grátis sem compromisso →
-            </a>
-        </div>
-    </section>
-
-    <footer style="padding: 60px 40px; border-top: 5px solid var(--electric); text-align: center;">
-        <div style="font-size: 0.9em; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 2px;">
-            REBORN AI © 2026 — DESENVOLVIDO POR REBORNAI
-        </div>
-        <div style="margin-top: 20px;">
-            <span style="color: var(--electric);">●</span>
-            <span style="color: var(--magenta);">●</span>
-            <span style="color: var(--lime);">●</span>
+    <!-- FOOTER -->
+    <footer style="padding: 60px 40px; text-align: center; border-top: 1px solid rgba(0,0,0,0.08);">
+        <div style="color: var(--gray-700); font-size: 0.95em;">
+            Reborn AI © 2026 — Desenvolvido por REBORNAI
         </div>
     </footer>
 
@@ -775,8 +720,15 @@
             });
         });
         
-        // Nota: Stripe configurado com success_url=https://rebornaaqi.vercel.app/
-        // Após pagamento, user é redirecionado automaticamente
+        // Nav scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
     </script>
 </body>
 </html>
