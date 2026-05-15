@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 // Icons as inline SVGs
@@ -150,10 +150,32 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
+  const [toolsOpen, setToolsOpen] = useState(false);
+  const toolsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (toolsRef.current && !toolsRef.current.contains(event.target as Node)) {
+        setToolsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const toolsList = [
+    { icon: <MessageIcon />, title: "Chat Inteligente", description: "Conversa com IA avancada" },
+    { icon: <VideoIcon />, title: "Modo Live", description: "Video e voz em tempo real" },
+    { icon: <ImageIcon />, title: "Imagens AI", description: "Geracao de imagens profissionais" },
+    { icon: <GlobeIcon />, title: "WebCraft", description: "Cria websites completos", highlight: true },
+    { icon: <PresentationIcon />, title: "Apresentacoes", description: "Slides profissionais automaticos" },
+    { icon: <MailIcon />, title: "Email Marketing", description: "Campanhas em massa" },
+  ];
 
   const products = [
     {
@@ -253,7 +275,57 @@ export default function Home() {
 
             <div className="hidden md:flex items-center gap-8">
               <a href="#products" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Produtos</a>
-              <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Ferramentas</a>
+              
+              {/* Tools Dropdown */}
+              <div className="relative" ref={toolsRef}>
+                <button 
+                  onClick={() => setToolsOpen(!toolsOpen)}
+                  className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  Ferramentas
+                  <span className={`transition-transform duration-200 ${toolsOpen ? "rotate-180" : ""}`}>
+                    <ChevronDownIcon />
+                  </span>
+                </button>
+                
+                {/* Dropdown Menu */}
+                {toolsOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 p-4 z-50">
+                    <div className="grid gap-1">
+                      {toolsList.map((tool, index) => (
+                        <Link
+                          key={index}
+                          href="https://rebornaaqi.vercel.app/"
+                          className={`flex items-center gap-3 p-3 rounded-xl transition-all hover:bg-slate-50 ${tool.highlight ? "bg-amber-50 hover:bg-amber-100" : ""}`}
+                          onClick={() => setToolsOpen(false)}
+                        >
+                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${tool.highlight ? "gradient-gold text-white" : "bg-slate-100 text-slate-600"}`}>
+                            {tool.icon}
+                          </div>
+                          <div>
+                            <div className={`font-medium text-sm ${tool.highlight ? "text-amber-700" : "text-foreground"}`}>
+                              {tool.title}
+                              {tool.highlight && <span className="ml-2 text-xs bg-amber-200 text-amber-800 px-1.5 py-0.5 rounded">Popular</span>}
+                            </div>
+                            <div className="text-xs text-muted-foreground">{tool.description}</div>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="mt-3 pt-3 border-t border-slate-100">
+                      <Link 
+                        href="https://rebornaaqi.vercel.app/" 
+                        className="flex items-center justify-center gap-2 w-full py-2.5 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors"
+                        onClick={() => setToolsOpen(false)}
+                      >
+                        Ver todas as 11+ ferramentas
+                        <ArrowRightIcon />
+                      </Link>
+                    </div>
+                  </div>
+                )}
+              </div>
+              
               <a href="#pricing" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Precos</a>
               <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
             </div>
