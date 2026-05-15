@@ -107,20 +107,20 @@ function FeatureCard({ icon, title, description, highlighted, badge }: {
   badge?: string;
 }) {
   return (
-    <div className={`group relative p-6 rounded-xl transition-all duration-300 ${
-      highlighted ? "premium-card" : "glass-light hover:border-white/20"
+    <div className={`group relative p-6 rounded-2xl transition-all duration-300 ${
+      highlighted ? "premium-card" : "glass-card hover:border-amber-200"
     }`}>
       {highlighted && badge && (
-        <span className="absolute -top-3 left-4 px-3 py-1 text-xs font-bold gradient-gold text-black rounded-full">
+        <span className="absolute -top-3 left-4 px-3 py-1 text-xs font-bold gradient-gold text-white rounded-full shadow-lg">
           {badge}
         </span>
       )}
-      <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${
-        highlighted ? "gradient-gold text-black" : "bg-white/10"
+      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
+        highlighted ? "gradient-gold text-white" : "bg-amber-50 text-amber-600"
       } transition-colors`}>
         {icon}
       </div>
-      <h3 className="text-lg font-semibold mb-2">{title}</h3>
+      <h3 className="text-lg font-semibold mb-2 text-foreground">{title}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
     </div>
   );
@@ -131,13 +131,13 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [isOpen, setIsOpen] = useState(false);
   
   return (
-    <div className="glass-light rounded-xl overflow-hidden transition-all">
+    <div className="glass-card rounded-2xl overflow-hidden transition-all">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex items-center justify-between p-6 text-left"
+        className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-colors"
       >
-        <span className="font-medium pr-4">{question}</span>
-        <span className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+        <span className="font-medium text-foreground pr-4">{question}</span>
+        <span className={`flex-shrink-0 text-amber-500 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
           <ChevronDownIcon />
         </span>
       </button>
@@ -245,10 +245,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg gradient-gold flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg gradient-gold flex items-center justify-center text-white">
                 <SparklesIcon />
               </div>
-              <span className="text-xl font-bold">Reborn AI</span>
+              <span className="text-xl font-bold text-foreground">Reborn AI</span>
             </Link>
 
             <div className="hidden md:flex items-center gap-8">
@@ -262,7 +262,7 @@ export default function Home() {
               <Link href="https://rebornaaqi.vercel.app/" className="hidden sm:block text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Entrar
               </Link>
-              <Link href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" className="px-4 py-2 text-sm font-medium rounded-full gradient-gold text-black hover:opacity-90 transition-opacity">
+              <Link href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" className="px-4 py-2 text-sm font-medium rounded-full gradient-gold text-white hover:opacity-90 transition-opacity shadow-lg">
                 Comecar Agora
               </Link>
             </div>
@@ -271,15 +271,15 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-16 bg-grid">
+      <section className="relative min-h-screen flex items-center justify-center pt-16 hero-gradient">
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1s" }} />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-orange-200/30 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1s" }} />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-light mb-8 border border-amber-500/30">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200 mb-8">
               <CrownIcon />
               <span className="text-sm shimmer-gold font-medium">Plataforma AI Completa</span>
             </div>
@@ -295,11 +295,11 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-              <Link href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" className="w-full sm:w-auto px-8 py-4 text-base font-semibold rounded-full gradient-gold text-black hover:opacity-90 transition-all glow-gold-subtle flex items-center justify-center gap-2">
+              <Link href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" className="w-full sm:w-auto px-8 py-4 text-base font-semibold rounded-full gradient-gold text-white hover:opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2">
                 Comecar por 9,99 euros/mes
                 <ArrowRightIcon />
               </Link>
-              <Link href="https://rebornaaqi.vercel.app/" className="w-full sm:w-auto px-8 py-4 text-base font-medium rounded-full glass-light border border-border hover:border-amber-500/50 transition-all flex items-center justify-center gap-2">
+              <Link href="https://rebornaaqi.vercel.app/" className="w-full sm:w-auto px-8 py-4 text-base font-medium rounded-full bg-white border border-slate-200 hover:border-amber-300 text-foreground transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2">
                 <PlayIcon />
                 Experimentar Gratis
               </Link>
@@ -318,7 +318,7 @@ export default function Home() {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-24 relative">
+      <section id="products" className="py-24 relative bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
@@ -332,27 +332,27 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
             {products.map((product, index) => (
-              <div key={index} className={`group relative rounded-2xl p-6 lg:p-8 transition-all duration-500 hover:scale-[1.02] ${product.premium ? "premium-card glow-gold-subtle" : "glass-light hover:border-white/20"}`}>
+              <div key={index} className={`group relative rounded-2xl p-6 lg:p-8 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 ${product.premium ? "premium-card glow-gold-subtle" : "glass-card"}`}>
                 {product.premium && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full gradient-gold text-black text-xs font-bold flex items-center gap-1">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full gradient-gold text-white text-xs font-bold flex items-center gap-1 shadow-lg">
                     <CrownIcon />
                     PREMIUM
                   </div>
                 )}
-                <div className={`w-14 h-14 rounded-xl ${product.premium ? "gradient-gold text-black" : "bg-white/10"} flex items-center justify-center mb-6`}>
+                <div className={`w-14 h-14 rounded-xl ${product.premium ? "gradient-gold text-white" : "bg-amber-50 text-amber-600"} flex items-center justify-center mb-6`}>
                   {product.icon}
                 </div>
-                <h3 className={`text-xl font-bold mb-3 ${product.premium ? "shimmer-gold" : ""}`}>{product.title}</h3>
+                <h3 className={`text-xl font-bold mb-3 ${product.premium ? "shimmer-gold" : "text-foreground"}`}>{product.title}</h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">{product.description}</p>
                 <ul className="space-y-3 mb-6">
                   {product.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-center gap-3 text-sm">
-                      <span className={product.premium ? "text-amber-400" : "text-emerald-400"}><CheckIcon /></span>
+                    <li key={fIndex} className="flex items-center gap-3 text-sm text-foreground">
+                      <span className={product.premium ? "text-amber-500" : "text-emerald-500"}><CheckIcon /></span>
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <Link href="https://rebornaaqi.vercel.app/" className={`w-full py-3 rounded-full font-medium transition-all flex items-center justify-center gap-2 ${product.premium ? "gradient-gold text-black hover:opacity-90" : "bg-white/5 hover:bg-white/10 border border-white/10"}`}>
+                <Link href="https://rebornaaqi.vercel.app/" className={`w-full py-3 rounded-full font-medium transition-all flex items-center justify-center gap-2 ${product.premium ? "gradient-gold text-white hover:opacity-90 shadow-lg" : "bg-slate-100 hover:bg-slate-200 text-foreground"}`}>
                   Explorar
                   <ArrowRightIcon />
                 </Link>
@@ -363,7 +363,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-24 relative bg-secondary/30">
+      <section id="features" className="py-24 relative bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-sm font-medium shimmer-gold uppercase tracking-wider">Ferramentas Profissionais</span>
@@ -385,10 +385,10 @@ export default function Home() {
       </section>
 
       {/* How to Earn Section */}
-      <section className="py-24 relative">
+      <section className="py-24 relative bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-sm font-medium text-emerald-400 uppercase tracking-wider">Oportunidade</span>
+            <span className="text-sm font-medium text-emerald-600 uppercase tracking-wider">Oportunidade</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-4">
               <span className="gradient-text">Como podes ganhar dinheiro</span>{" "}
               <span className="shimmer-gold">com o Reborn AI</span>
@@ -400,9 +400,9 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {earnSteps.map((step, index) => (
-              <div key={index} className="glass-light rounded-xl p-6 hover:border-amber-500/30 transition-all">
-                <span className="text-4xl font-bold text-amber-500/30">{step.number}</span>
-                <h3 className="text-lg font-semibold mt-4 mb-3">{step.title}</h3>
+              <div key={index} className="glass-card rounded-2xl p-6 hover:border-amber-200 transition-all">
+                <span className="text-4xl font-bold text-amber-200">{step.number}</span>
+                <h3 className="text-lg font-semibold mt-4 mb-3 text-foreground">{step.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
               </div>
             ))}
@@ -411,13 +411,13 @@ export default function Home() {
           {/* Highlight CTA */}
           <div className="mt-16 text-center">
             <div className="inline-block premium-card rounded-2xl p-8 md:p-12 max-w-3xl glow-gold-subtle">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
                 Com apenas 1 cliente, podes pagar varios meses do Reborn AI.
               </h3>
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
                 Se cobrares 200 euros por um website e pagares 9,99 euros/mes pela plataforma, tens uma oportunidade simples para comecar a gerar rendimento com IA.
               </p>
-              <Link href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" className="inline-flex items-center gap-2 gradient-gold text-black px-6 py-3.5 rounded-xl font-medium hover:opacity-90 transition-all">
+              <Link href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" className="inline-flex items-center gap-2 gradient-gold text-white px-6 py-3.5 rounded-xl font-medium hover:opacity-90 transition-all shadow-lg">
                 Comecar Agora
                 <ArrowRightIcon />
               </Link>
@@ -427,7 +427,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 relative bg-secondary/30">
+      <section id="pricing" className="py-24 relative bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-sm font-medium shimmer-gold uppercase tracking-wider">Planos e Precos</span>
@@ -442,34 +442,34 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-3 gap-6">
             {pricingPlans.map((plan, index) => (
-              <div key={index} className={`relative rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:scale-[1.02] ${plan.popular ? "premium-card glow-gold-subtle lg:scale-105" : "glass-light hover:border-white/20"}`}>
+              <div key={index} className={`relative rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1 ${plan.popular ? "premium-card glow-gold-subtle lg:scale-105" : "glass-card"}`}>
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full gradient-gold text-black text-xs font-bold flex items-center gap-1">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full gradient-gold text-white text-xs font-bold flex items-center gap-1 shadow-lg">
                     <CrownIcon />
                     RECOMENDADO
                   </div>
                 )}
                 <div className="mb-6">
-                  <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? "shimmer-gold" : ""}`}>{plan.name}</h3>
+                  <h3 className={`text-2xl font-bold mb-2 ${plan.popular ? "shimmer-gold" : "text-foreground"}`}>{plan.name}</h3>
                   <p className="text-sm text-muted-foreground">{plan.description}</p>
                 </div>
                 <div className="mb-6">
-                  <span className={`text-4xl font-bold ${plan.popular ? "shimmer-gold" : ""}`}>
+                  <span className={`text-4xl font-bold ${plan.popular ? "shimmer-gold" : "text-foreground"}`}>
                     {plan.price === "0" ? "" : ""}
                     {plan.price}
                   </span>
                   {plan.price !== "0" && <span className="text-muted-foreground"> euros/mes</span>}
-                  {plan.price === "0" && <span className="text-4xl font-bold">Gratis</span>}
+                  {plan.price === "0" && <span className="text-4xl font-bold text-foreground">Gratis</span>}
                 </div>
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, fIndex) => (
-                    <li key={fIndex} className="flex items-center gap-3 text-sm">
-                      <span className={plan.popular ? "text-amber-400" : "text-emerald-400"}><CheckIcon /></span>
+                    <li key={fIndex} className="flex items-center gap-3 text-sm text-foreground">
+                      <span className={plan.popular ? "text-amber-500" : "text-emerald-500"}><CheckIcon /></span>
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <Link href={plan.href} className={`w-full py-3.5 rounded-xl font-medium transition-all flex items-center justify-center gap-2 ${plan.popular ? "gradient-gold text-black hover:opacity-90" : "bg-white/5 hover:bg-white/10 border border-white/10"}`}>
+                <Link href={plan.href} className={`w-full py-3.5 rounded-xl font-medium transition-all flex items-center justify-center gap-2 ${plan.popular ? "gradient-gold text-white hover:opacity-90 shadow-lg" : "bg-slate-100 hover:bg-slate-200 text-foreground"}`}>
                   {plan.cta}
                 </Link>
               </div>
@@ -479,7 +479,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-24 relative">
+      <section id="faq" className="py-24 relative bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-sm font-medium shimmer-gold uppercase tracking-wider">Perguntas Frequentes</span>
@@ -497,7 +497,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-24 relative">
+      <section className="py-24 relative bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="premium-card rounded-3xl p-8 sm:p-12 glow-gold">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
@@ -508,11 +508,11 @@ export default function Home() {
               O Reborn AI da-te ferramentas para criar websites, conteudos e campanhas sem comecares do zero.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" className="w-full sm:w-auto px-8 py-4 text-base font-semibold rounded-full gradient-gold text-black hover:opacity-90 transition-all flex items-center justify-center gap-2">
+              <Link href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" className="w-full sm:w-auto px-8 py-4 text-base font-semibold rounded-full gradient-gold text-white hover:opacity-90 transition-all shadow-lg flex items-center justify-center gap-2">
                 Adere por 9,99 euros/mes
                 <ArrowRightIcon />
               </Link>
-              <Link href="https://rebornaaqi.vercel.app/" className="w-full sm:w-auto px-8 py-4 text-base font-medium rounded-full glass-light border border-amber-500/30 hover:border-amber-500/50 transition-all">
+              <Link href="https://rebornaaqi.vercel.app/" className="w-full sm:w-auto px-8 py-4 text-base font-medium rounded-full bg-white border border-amber-200 hover:border-amber-400 text-foreground transition-all shadow-sm">
                 Ou experimenta gratis
               </Link>
             </div>
@@ -521,14 +521,14 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-border">
+      <footer className="py-12 border-t border-border bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg gradient-gold flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg gradient-gold flex items-center justify-center text-white">
                 <SparklesIcon />
               </div>
-              <span className="text-xl font-bold">Reborn AI</span>
+              <span className="text-xl font-bold text-foreground">Reborn AI</span>
             </Link>
             <div className="flex items-center gap-8 text-sm text-muted-foreground">
               <a href="#" className="hover:text-foreground transition-colors">Privacidade</a>
