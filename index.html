@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reborn AI — Plataforma Completa de Inteligência Artificial</title>
-    <meta name="description" content="11+ ferramentas de IA profissionais. Chat, Imagens, WebCraft, Slides, Ebooks e muito mais.">
+    <meta name="description" content="A plataforma de IA que te ajuda a criar websites, conteúdos, campanhas e ganhar dinheiro online. Começa grátis ou por apenas 9,99€/mês.">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
         
@@ -496,6 +496,204 @@
             color: white;
         }
         
+        /* HOW TO EARN MONEY SECTION */
+        .earn-section {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+        }
+        
+        .earn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        
+        .earn-card {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .earn-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.12);
+        }
+        
+        .earn-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.3em;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .earn-card h3 {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .earn-card p {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+        
+        /* HIGHLIGHT BLOCK */
+        .highlight-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #7c3aed 100%);
+            padding: 80px 40px;
+            text-align: center;
+        }
+        
+        .highlight-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+        }
+        
+        .highlight-content h2 {
+            font-size: clamp(1.8em, 3vw, 2.5em);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .highlight-content p {
+            font-size: 1.15em;
+            opacity: 0.95;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+        
+        .highlight-cta {
+            display: inline-block;
+            padding: 16px 40px;
+            background: white;
+            color: var(--primary);
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+            transition: all 0.3s ease;
+        }
+        
+        .highlight-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* FEATURE BADGE */
+        .feature-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75em;
+            font-weight: 600;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .feature-card.highlighted {
+            border: 2px solid var(--success);
+            background: linear-gradient(to bottom, #f0fdf4 0%, white 100%);
+        }
+        
+        /* FAQ SECTION */
+        .faq-section {
+            background: white;
+        }
+        
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: #f9fafb;
+            border-radius: 12px;
+            padding: 28px;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        
+        .faq-item h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--dark);
+        }
+        
+        .faq-item p {
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+        
+        /* FINAL CTA SECTION */
+        .final-cta-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            padding: 100px 40px;
+            text-align: center;
+        }
+        
+        .final-cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+            color: white;
+        }
+        
+        .final-cta-content h2 {
+            font-size: clamp(2em, 4vw, 3em);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .final-cta-content p {
+            font-size: 1.2em;
+            opacity: 0.85;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        
+        .final-cta-btn {
+            display: inline-block;
+            padding: 18px 48px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
+        .final-cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.4);
+        }
+        
+        /* PLAN SUBTITLE */
+        .plan-subtitle {
+            font-size: 0.9em;
+            color: var(--gray-700);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+        
         /* MOBILE */
         @media (max-width: 968px) {
             .hero-content {
@@ -519,6 +717,34 @@
             .pricing-card.featured {
                 transform: scale(1);
             }
+            
+            .earn-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .highlight-section {
+                padding: 60px 24px;
+            }
+            
+            .highlight-content h2 {
+                font-size: 1.5em;
+            }
+            
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .final-cta-section {
+                padding: 60px 24px;
+            }
+            
+            .final-cta-content h2 {
+                font-size: 1.8em;
+            }
+            
+            section {
+                padding: 80px 24px;
+            }
         }
     </style>
 </head>
@@ -534,10 +760,10 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <h1>A Inteligência Artificial que Transforma</h1>
-                <p>11+ ferramentas profissionais de IA numa única plataforma. Chat inteligente, criação de conteúdo, marketing automático e muito mais.</p>
+                <h1>A plataforma de IA que te ajuda a criar, vender e ganhar dinheiro online.</h1>
+                <p>Cria websites, posts, emails, apresentações, ebooks e campanhas em minutos. Começa grátis ou desbloqueia tudo por apenas 9,99€/mês.</p>
                 <div class="hero-cta">
-                    <a href="https://buy.stripe.com/cNi4gz1J36rA264gEt5Rm06" class="btn btn-primary">Começar com PRO</a>
+                    <a href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" class="btn btn-primary">Começar por 9,99€/mês</a>
                     <a href="https://rebornaaqi.vercel.app/" class="btn btn-secondary">Experimentar Grátis</a>
                 </div>
             </div>
@@ -560,6 +786,52 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- HOW TO EARN MONEY -->
+    <section class="earn-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Oportunidade</div>
+                <h2 class="section-title">Como podes ganhar dinheiro com o Reborn AI</h2>
+                <p class="section-subtitle">Transforma as ferramentas de IA em rendimento real com estes passos simples</p>
+            </div>
+            
+            <div class="earn-grid">
+                <div class="earn-card">
+                    <div class="earn-number">1</div>
+                    <h3>Encontra um negócio local</h3>
+                    <p>Fala com cafés, restaurantes, barbeiros, lojas, clínicas, empresas e amigos que precisam de presença online.</p>
+                </div>
+                
+                <div class="earn-card">
+                    <div class="earn-number">2</div>
+                    <h3>Cria o website com WebCraft</h3>
+                    <p>Usa o Reborn AI para gerar rapidamente websites profissionais, páginas de venda e landing pages.</p>
+                </div>
+                
+                <div class="earn-card">
+                    <div class="earn-number">3</div>
+                    <h3>Cobra pelo serviço</h3>
+                    <p>Podes cobrar 200€ ou mais por cada website criado, dependendo do projeto e do cliente.</p>
+                </div>
+                
+                <div class="earn-card">
+                    <div class="earn-number">4</div>
+                    <h3>Repete e escala</h3>
+                    <p>Com uma subscrição de 9,99€/mês, podes criar oportunidades com custo reduzido e margem alta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHT BLOCK -->
+    <section class="highlight-section">
+        <div class="highlight-content">
+            <h2>Com apenas 1 cliente, podes pagar vários meses do Reborn AI.</h2>
+            <p>Se cobrares 200€ por um website e pagares 9,99€/mês pela plataforma, tens uma oportunidade simples para começar a gerar rendimento com IA.</p>
+            <a href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" class="highlight-cta">Começar Agora</a>
         </div>
     </section>
 
@@ -593,10 +865,11 @@
                     <p class="feature-desc">Geração de imagens profissionais com múltiplos estilos e alta resolução.</p>
                 </div>
                 
-                <div class="feature-card">
+                <div class="feature-card highlighted">
+                    <div class="feature-badge">Mais indicado para ganhar dinheiro</div>
                     <div class="feature-icon">🌐</div>
                     <h3 class="feature-title">WebCraft</h3>
-                    <p class="feature-desc">Cria websites completos com 10 categorias, 40 templates e deploy automático.</p>
+                    <p class="feature-desc">Cria websites completos, landing pages e páginas profissionais para negócios locais com IA.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -670,6 +943,7 @@
                 <div class="pricing-card">
                     <div class="plan-name">Basic</div>
                     <div class="plan-price">€9.99<small>/mês</small></div>
+                    <div class="plan-subtitle">Perfeito para começar a criar websites para clientes.</div>
                     <ul class="plan-features">
                         <li>Tokens diários generosos</li>
                         <li>Todas 11+ ferramentas</li>
@@ -683,9 +957,10 @@
                 </div>
                 
                 <div class="pricing-card featured">
-                    <div class="pricing-badge">🔥 Recomendado</div>
+                    <div class="pricing-badge">Recomendado</div>
                     <div class="plan-name">PRO</div>
                     <div class="plan-price">€69.99<small>/mês</small></div>
+                    <div class="plan-subtitle">Ideal para freelancers, agências e criadores que querem escalar.</div>
                     <ul class="plan-features">
                         <li>🔥 Tokens ILIMITADOS</li>
                         <li>ZERO limites, ZERO esperas</li>
@@ -699,6 +974,47 @@
                     <a href="https://buy.stripe.com/cNi4gz1J36rA264gEt5Rm06" class="plan-cta">Upgrade para PRO</a>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Perguntas Frequentes</div>
+                <h2 class="section-title">Dúvidas? Temos Respostas.</h2>
+            </div>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3>Preciso saber programar?</h3>
+                    <p>Não. O Reborn AI foi criado para simplificar a criação de websites, conteúdos e campanhas.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Posso vender websites criados com o WebCraft?</h3>
+                    <p>Sim. Podes usar o WebCraft para criar websites para clientes, negócios locais e empresas.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Quanto posso cobrar?</h3>
+                    <p>Depende do cliente e do projeto, mas websites simples podem ser vendidos por 200€ ou mais.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>O plano Basic chega para começar?</h3>
+                    <p>Sim. O plano Basic por 9,99€/mês é ideal para começar a testar, criar e vender.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+        <div class="final-cta-content">
+            <h2>Começa hoje a transformar IA em rendimento.</h2>
+            <p>O Reborn AI dá-te ferramentas para criar websites, conteúdos e campanhas sem começares do zero.</p>
+            <a href="https://buy.stripe.com/eVqdR93RbaHQ4ecbk95Rm00" class="final-cta-btn">Adere por 9,99€/mês</a>
         </div>
     </section>
 
